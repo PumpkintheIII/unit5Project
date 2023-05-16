@@ -6,8 +6,19 @@
 #include <stdio.h> //import input and output functions
 #include <string.h> //import string function
 
+float finalLowest(float q1, float q2, float lowest) { //define finalLowest function
+  float finalGrade; //define variable
+  finalGrade = ((q1 * 0.4) + (q2 * 0.4) - lowest)/(-0.2); //find the grade needed on the final to get the wanted semester grade
+  return finalGrade;
+}
+float finalHighest(float q1, float q2, float highest) { //define finalLowest function
+  float finalGrade; //define variable
+  finalGrade = ((q1 * 0.4) + (q2 * 0.4) - highest)/(-0.2); //find the grade needed on the final to get the wanted semester grade
+  return finalGrade;
+}
+
 int main(void) { //define main function
-  float q1, q2; //define variables as float
+  float q1, q2, lowFinal, highFinal; //define variables as float
   char wantedSemester[5]; //define strign variable
 
   printf("Quarter 1 Grade: "); //ask user for input
@@ -17,72 +28,81 @@ int main(void) { //define main function
   printf("Wanted Semester Grade: "); //ask user for input
   scanf("%s", wantedSemester); //accept user input
 
-  printf("\nEntered Grades:"); //formatting
-  printf("\nQuarter 1 Grade: %f", q1); //print q1 grade
-  printf("\nQuarter 2 Grade: %f", q2); //print q2 grade
-  printf("\nWanted Semester Grade: %s", wantedSemester);  //print wanted semester grade
-
-  printf("\n\nWanted Semester Grade:"); //formatting
+  printf("\nWanted Semester Grade:"); //formatting
   if (strcasecmp(wantedSemester, "F") == 0) {
     //if user entered F as wanted semester grade:
-    printf("\nWanted Semester Grade is an F!"); //print wanted semester grade
-    printf("\n0-64"); //percent 
+    lowFinal = finalLowest(q1, q2, 0); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 64); //find the highest grade on the final
+    printf("\nTo get an F this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "D") == 0) {
     //if user entered D as wanted semester grade:
-    printf("\nWanted Semester Grade is an D!"); //print wanted semester grade
-    printf("\n65-66"); //percent 
+    lowFinal = finalLowest(q1, q2, 65); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 66); //find the highest grade on the final
+    printf("\nTo get a D this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "D+") == 0) {
     //if user entered D+ as wanted semester grade:
-    printf("\nWanted Semester Grade is an D+!"); //print wanted semester grade
-    printf("\n67-69"); //percent 
+    lowFinal = finalLowest(q1, q2, 67); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 69); //find the highest grade on the final
+    printf("\nTo get a D+ this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "C-") == 0) {
     //if user entered C- as wanted semester grade:
-    printf("\nWanted Semester Grade is an C-!"); //print wanted semester grade
-    printf("\n70-72"); //percent 
+    lowFinal = finalLowest(q1, q2, 70); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 72); //find the highest grade on the final
+    printf("\nTo get a C- this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "C") == 0) {
     //if user entered C as wanted semester grade:
-    printf("\nWanted Semester Grade is an C!"); //print wanted semester grade
-    printf("\n73-76"); //percent 
+    lowFinal = finalLowest(q1, q2, 73); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 76); //find the highest grade on the final
+    printf("\nTo get a C this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "C+") == 0) {
-    //if user entered C+ as wanted semester grade:
-    printf("\nWanted Semester Grade is an C+!"); //print wanted semester grade
-    printf("\n77-79"); //percent 
+    //if user entered C+ as wanted semester grade: 
+    lowFinal = finalLowest(q1, q2, 77); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 79); //find the highest grade on the final
+    printf("\nTo get a C+ this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "B-") == 0) {
-    //if user entered B- as wanted semester grade:
-    printf("\nWanted Semester Grade is an B-!"); //print wanted semester grade
-    printf("\n80-82"); //percent 
+    //if user entered B- as wanted semester grade: 
+    lowFinal = finalLowest(q1, q2, 80); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 82); //find the highest grade on the final
+    printf("\nTo get a B- this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "B") == 0) {
     //if user entered B as wanted semester grade:
-    printf("\nWanted Semester Grade is an B!"); //print wanted semester grade
-    printf("\n83-86"); //percent 
+    lowFinal = finalLowest(q1, q2, 83); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 86); //find the highest grade on the final
+    printf("\nTo get a B this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "B+") == 0) {
     //if user entered B+ as wanted semester grade:
-    printf("\nWanted Semester Grade is an B+!"); //print wanted semester grade
-    printf("\n87-89"); //percent 
+    lowFinal = finalLowest(q1, q2, 87); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 89); //find the highest grade on the final
+    printf("\nTo get a B+ this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "A-") == 0) {
     //if user entered A- as wanted semester grade:
-    printf("\nWanted Semester Grade is an A-!"); //print wanted semester grade
-    printf("\n90-92"); //percent 
+    lowFinal = finalLowest(q1, q2, 90); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 92); //find the highest grade on the final
+    printf("\nTo get a A- this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "A") == 0) {
     //if user entered A as wanted semester grade:
-    printf("\nWanted Semester Grade is an A!"); //print wanted semester grade
-    printf("\n93-96"); //percent 
+    lowFinal = finalLowest(q1, q2, 83); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 86); //find the highest grade on the final
+    printf("\nTo get a A this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
   else if (strcasecmp(wantedSemester, "A+") == 0) {
     //if user entered A+ as wanted semester grade:
-    printf("\nWanted Semester Grade is an A+!"); //print wanted semester grade
-    printf("\n97-100"); //percent 
+    lowFinal = finalLowest(q1, q2, 97); //find the lowest grade on the final
+    highFinal = finalHighest(q1, q2, 100); //find the highest grade on the final
+    printf("\nTo get a A+ this semester you must get between %0.2f%% and %0.2f%% on the final.", lowFinal, highFinal); //print needed grade on final
   }
+
+  printf("\nProgram Complete!\n"); //output statement
   
   return 0;
 }
